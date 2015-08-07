@@ -1,1 +1,1 @@
-# pony-editor
+# pony-list
