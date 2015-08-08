@@ -9,7 +9,6 @@ class PonyItem extends React.Component {
     }
 
     remove = (e) => {
-        console.log('remove');
         actions.remove(this.props.pony);
     };
 

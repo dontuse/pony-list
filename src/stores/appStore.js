@@ -45,9 +45,7 @@ function removePony(pony) {
 
 }
 
-
-
-let appStore = window.appStore = Object.assign({}, EventEmitter.prototype, {
+let appStore = Object.assign({}, EventEmitter.prototype, {
 
     emitChange() {
         this.emit(CHANGE_EVENT);

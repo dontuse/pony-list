@@ -31,8 +31,6 @@ class PonyForm extends React.Component {
             description: this.refs.description.getValue()
         };
         action.addPony(pony);
-
-        console.log(this.refs.evil.getValue());
     };
 
 

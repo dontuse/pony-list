@@ -3,7 +3,6 @@ import AppDispatcher from '../dispatcher/AppDispatcher.js';
 
 let AppActions = {
     addPony(pony) {
-        console.log(`action - добавим пони ${constants.ADD_PONY}`);
         AppDispatcher.dispatch({
             actionType: constants.ADD_PONY,
             pony: pony
