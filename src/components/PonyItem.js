@@ -3,6 +3,7 @@ import {Grid,Row,Col, Input} from 'react-bootstrap';
 import actions from '../actions/actions.js';
 import '../css/pony/pony.less';
 
+
 class PonyItem extends React.Component {
     constructor(props) {
         super(props);
@@ -24,6 +25,9 @@ class PonyItem extends React.Component {
                 </div>
                 <div className="pony__prop">
                     Возраст: {this.props.pony.age ? <b>{this.props.pony.age}</b> : <i>неизвестен</i>}
+                </div>
+                <div className="pony__prop">
+                    Друзей: {this.props.pony.friends ? <b>{this.props.pony.friends}</b> : <i>нет</i>}
                 </div>
                 <div className="pony_prop">
                     {this.props.pony.isEvil ? <b>Он злой</b> : <b>Он добрый</b>}
