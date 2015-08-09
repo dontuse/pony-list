@@ -2,6 +2,8 @@ import React from 'react';
 import {Grid,Row,Col, Input, ButtonInput} from 'react-bootstrap';
 import action from '../actions/actions.js';
 import appStore from '../stores/appStore.js';
+import Counter from '../components/r-quality/index.jsx';
+import '../components/r-quality/index.less';
 
 function getStateFromStore() {
     return {
@@ -28,9 +30,12 @@ class PonyForm extends React.Component {
             isEvil: this.refs.evil.getInputDOMNode().checked ? true : false,
             color: this.refs.color.getValue(),
             kind : this.refs.kind.getValue(),
-            description: this.refs.description.getValue()
+            description: this.refs.description.getValue(),
+            friends : this.refs.friends.getValue()
         };
         action.addPony(pony);
+
+        console.log(this.refs.friends.getValue());
     };
 
 
@@ -38,7 +43,6 @@ class PonyForm extends React.Component {
     _onChange = () => {
         this.setState(getStateFromStore());
         this.refs.name.getInputDOMNode().value = '';
-        this.refs.age.getInputDOMNode().value = '';
     };
 
 
@@ -48,6 +52,10 @@ class PonyForm extends React.Component {
                 <h3>Новый пони</h3>
                 <Input required ref="name" type='text' label='Имя' placeholder='Назовите пони' />
                 <Input ref="age" type='number' label='Возраст' placeholder='Сколько ему лет ?' />
+                <div>
+                    <label className="control-label">Сколько у него друзей ?</label>
+                    <Counter ref="friends" />
+                </div>
                 <Input value="isEvil" ref="evil" type='checkbox' label='Он Злой ?' checked={this.state.isEvil} />
                 <Input ref="kind" defaultValue="" type='select' label='Порода' placeholder='Выберите породу'>
                     {this.state.kinds.map((kind, index) => {
@@ -55,6 +63,7 @@ class PonyForm extends React.Component {
                     })}
                     <option value=''>...</option>
                 </Input>
+
                 <Input ref="color" defaultValue="" type='select' label='Какого он цвета ?' placeholder=''>
                     {this.state.colors.map((color, index) => {
                         return (<option key={index} value={color}>{color}</option>);
